@@ -41,8 +41,7 @@ fun TextView.bindContent(item: Article) {
 @RequiresApi(Build.VERSION_CODES.O)
 @BindingAdapter("time")
 fun TextView.bindTime(item: Article) {
-    item.created_time?.let{
-
+    item.createdTime?.let{
 
         val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd hh:mm",  Locale.TAIWAN)
 

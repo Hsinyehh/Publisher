@@ -7,7 +7,7 @@ data class Article(
     val author: Author?,
     val title:String,
     val content:String,
-    val created_time: Long?,
+    val createdTime: Long?,
     val id:String?,
     val category:String?,
 ){constructor() : this(null, "", "",null,"",null){}}
