@@ -23,33 +23,39 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="@{article}"/>
+            app:title="@{article}"
+            tools:text="Hello world!" />
 
         <TextView
             android:id="@+id/author_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/half_standard_margin"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/article_title"
-            app:name="@{article}"/>
+            app:name="@{article}"
+            tools:text="AKA 小安老師" />
 
         <TextView
             android:id="@+id/created_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2020/01/05"
             android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/half_standard_margin"
+            android:fontFamily="@font/noto_sans"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/author_name"
-            app:time="@{article}"/>
+            app:time="@{article}"
+            tools:text="2020.01.05 09:13"/>
 
         <TextView
             android:id="@+id/article_content"
@@ -58,11 +64,13 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="@dimen/half_standard_margin"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
+            android:fontFamily="@font/noto_sans"
+            android:textColor="@color/black"
+            app:content="@{article}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/created_time"
-            app:content="@{article}"/>
+            tools:text="Welcome!Welcome!Welcome!"/>
 
         <TextView
             android:id="@+id/article_category"
@@ -70,10 +78,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/half_standard_margin"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="bold"
+            android:background="@color/gray_f0f0f0"
+            android:textColor="@color/black_3f3a3a"
+            app:category="@{article}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/article_title"
-            app:category="@{article}"/>
+            tools:text="Beauty" />
+
+        <View
+            android:id="@+id/bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="#CCCCCC"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/article_content" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
