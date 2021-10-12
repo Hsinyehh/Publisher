@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.rita.publisher.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/articlePublishFragment"
+        android:name="com.rita.publisher.publish.ArticlePublishFragment"
+        android:label="ArticlePublishFragment" />
+
+    <action
+        android:id="@+id/navigate_to_home_fragment"
+        app:destination="@id/homeFragment"
+        app:popUpTo="@id/navigation" />
+    <action
+        android:id="@+id/navigate_to_article_publish_fragment"
+        app:destination="@id/articlePublishFragment"
+        app:popUpTo="@id/navigation"
+        app:popUpToInclusive="true" />
+
+</navigation>
