@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.rita.publisher.publish.ArticlePublishViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -31,7 +38,8 @@
                     android:hint="Input Title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@={viewModel.title}"/>
                 <EditText
                     android:id="@+id/publish_category_edit_text"
                     android:layout_width="0dp"
@@ -44,7 +52,8 @@
                     android:hint="Input Category"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/publish_title_edit_text" />
+                    app:layout_constraintTop_toBottomOf="@+id/publish_title_edit_text"
+                    android:text="@={viewModel.category}"/>
 
                 <EditText
                     android:id="@+id/publish_content_edit_text"
@@ -59,7 +68,8 @@
                     android:hint="Input Content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/publish_category_edit_text" />
+                    app:layout_constraintTop_toBottomOf="@+id/publish_category_edit_text"
+                    android:text="@={viewModel.content}"/>
 
                 <Button
                     android:id="@+id/publish_submit_btn"
@@ -70,6 +80,7 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginBottom="4dp"
                     android:text="Submit"
+                    android:onClick="@{()->viewModel.submitArticle()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/publish_content_edit_text"

@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rita.publisher.R
@@ -29,39 +31,15 @@ class ArticlePublishFragment : Fragment() {
         val binding: FragmentArticlePublishBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_article_publish, container, false)
 
-        val db = Firebase.firestore
+        binding.viewModel=viewModel
+        binding.lifecycleOwner=viewLifecycleOwner
 
-        binding.publishSubmitBtn.setOnClickListener {
-            val title = binding.publishTitleEditText.text.toString()
-            val category = binding.publishCategoryEditText.text.toString()
-            val content = binding.publishContentEditText.text.toString()
-
-            val newArticleRef = db.collection("articles").document()
-
-            val article = Article(
-                Author(),
-                title,
-                content,
-                Timestamp(System.currentTimeMillis()),
-                newArticleRef.id,
-                category
-            )
-
-            //Write data
-            newArticleRef
-                .set(article)
-                .addOnSuccessListener { documentReference ->
-                    Log.d(
-                        ContentValues.TAG,
-                        "DocumentSnapshot added with ID: " + newArticleRef.id
-                    )
-                }
-                .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Error adding document", e); }
-
-            binding.publishTitleEditText.text = null
-            binding.publishCategoryEditText.text = null
-            binding.publishContentEditText.text = null
-        }
+        viewModel.navigateToHome.observe(viewLifecycleOwner, Observer {
+            if(it==true){
+                view?.findNavController()?.navigate(R.id.navigate_to_home_fragment)
+                viewModel.doneNavigated()
+            }
+        })
 
 
         return binding.root
