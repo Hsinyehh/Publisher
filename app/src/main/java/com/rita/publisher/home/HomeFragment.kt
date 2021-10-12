@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.rita.publisher.R
 import com.rita.publisher.databinding.FragmentHomeBinding
 import com.rita.publisher.publish.ArticlePublishViewModel
@@ -46,6 +47,23 @@ class HomeFragment : Fragment() {
                 view?.findNavController()?.navigate(R.id.navigate_to_article_publish_fragment)
             }
         }
+
+
+        //Recycler View scroll to bottom to reload
+        val recyclerView =binding.articleList
+
+        fun setRecyclerViewScrollListener() {
+            recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    if (!recyclerView.canScrollVertically(1)) {
+                        viewModel.getArticles()
+                    }
+                }
+            })
+        }
+
+        setRecyclerViewScrollListener()
 
 
 

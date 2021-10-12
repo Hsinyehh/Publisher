@@ -25,7 +25,7 @@ class HomeViewModel : ViewModel() {
     }
 
 
-    private fun getArticles(){
+    fun getArticles(){
 
         val list= mutableListOf<Article>()
 
