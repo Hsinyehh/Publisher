@@ -19,8 +19,9 @@ class MainActivity : AppCompatActivity() {
             this, R.layout.activity_main
         )
 
-        val db = Firebase.firestore
+        setSupportActionBar(findViewById(R.id.my_toolbar))
 
 
-        }
+
+    }
 }

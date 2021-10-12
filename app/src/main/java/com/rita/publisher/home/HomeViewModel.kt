@@ -11,8 +11,6 @@ import com.rita.publisher.data.Article
 
 class HomeViewModel : ViewModel() {
 
-    private val _properties = MutableLiveData<List<Article>>()
-
     private val _articleList = MutableLiveData<List<Article>>()
 
     val articleList: LiveData<List<Article>>

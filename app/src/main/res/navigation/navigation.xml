@@ -15,11 +15,10 @@
     <action
         android:id="@+id/navigate_to_home_fragment"
         app:destination="@id/homeFragment"
-        app:popUpTo="@id/navigation" />
+        app:popUpTo="@id/articlePublishFragment"
+        app:popUpToInclusive="true"/>
     <action
         android:id="@+id/navigate_to_article_publish_fragment"
-        app:destination="@id/articlePublishFragment"
-        app:popUpTo="@id/navigation"
-        app:popUpToInclusive="true" />
+        app:destination="@id/articlePublishFragment" />
 
 </navigation>
