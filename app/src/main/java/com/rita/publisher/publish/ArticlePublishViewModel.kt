@@ -9,6 +9,7 @@ import com.google.firebase.ktx.Firebase
 import com.rita.publisher.data.Article
 import com.rita.publisher.data.Author
 import java.sql.Timestamp
+import java.util.*
 
 class ArticlePublishViewModel:ViewModel() {
 
@@ -34,7 +35,8 @@ class ArticlePublishViewModel:ViewModel() {
             Author(),
             title.value!!,
             content.value!!,
-            Timestamp(System.currentTimeMillis()),
+            //Timestamp(System.currentTimeMillis()),
+            Calendar.getInstance().timeInMillis,
             newArticleRef.id,
             category.value!!
         )
